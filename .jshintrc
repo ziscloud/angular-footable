@@ -1,21 +1,17 @@
 {
-    "globals": {
-    /* Jasmine >> */
-        "jasmine": true,
-        "describe": true,
-        "it": true,
-        "expect": true,
-        "beforeEach": true,
-        "afterEach": true,
-        /* ngMock >> */
-            "module": true,
-            "inject": true,
-            "$controller": true,
-            "$compile": true,
-        /* << ngMock */
-    /* << Jasmine */
-        "angular": true
-    },
+    "predef": [
+        "jasmine",
+        "describe",
+        "it",
+        "expect",
+        "beforeEach",
+        "afterEach",
+        "module",
+        "inject",
+        "$controller",
+        "$compile",
+        "angular"
+    ],
     "regexdash": true,
     "browser": true,
     "sub": true,

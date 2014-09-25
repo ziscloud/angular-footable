@@ -1,3 +1,5 @@
+'use strict';
+
 describe('example service - module test', function() {
 
     beforeEach(angular.mock.module('angular-footable'));

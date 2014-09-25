@@ -1,3 +1,5 @@
+'use strict';
+
 angular
     .module('angular-footable', [ ])
     .factory('example', function($rootScope) {
