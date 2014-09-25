@@ -1,0 +1,29 @@
+{
+    "folders":
+    [
+        {
+            "file_exclude_patterns":
+            [
+                "*~",
+                "*~~",
+                "*.jpg",
+                "*.png",
+                "*.pdf",
+                "*.odt",
+                "*.gif",
+                "*.ico",
+                "*.sublime-project",
+                "*.sublime-workspace"
+            ],
+            "folder_exclude_patterns":
+            [
+                "icons",
+                ".sass-cache",
+                ".crt",
+                ".tmp"
+            ],
+            "name": "angular-footable",
+            "path": "."
+        }
+    ]
+}

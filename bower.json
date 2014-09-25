@@ -1,0 +1,29 @@
+{
+  "name": "angular-footable",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ziscloud/angular-footable",
+  "authors": [
+    "Tony Wang <ziscloud@gmail.com>"
+  ],
+  "description": "Angular derictive for FooTable",
+  "main": "dist/angular-footable.js",
+  "keywords": [
+    "angular",
+    "footable"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2",
+    "jquery": "~2.1"
+  }
+}
