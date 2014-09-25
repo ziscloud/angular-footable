@@ -13,8 +13,9 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# Generated reports (testing, coverage, complexity)
+# Generated directory (testing, coverage, complexity)
 reports
+build
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release

@@ -1,26 +1,33 @@
-module.exports = function (config) {
-    config.set({
-        basePath: '../',
+module.exports = {
+  browsers: ['PhantomJS'],
+  frameworks: ['jasmine'],
 
-        frameworks: [ 'jasmine' ],
+  preprocessors: {
+    'src/**/!(*Spec).js': ['coverage'],
+    'src/**/*.js': ['commonjs']
+  },
 
-        files: [
-            'bower_components/jquery/dist/jquery.js',
-            'bower_components/angular/angular.js',
-            'bower_components/angular-mocks/angular-mocks.js',
-            'src/angular-footable.js',
-            'src/**/*.spec.js',
-            'test/main.js'
-        ],
+  files: [
+        'bower_components/jquery/dist/jquery.js',
+        'bower_components/angular/angular.js',
+        'bower_components/angular-mocks/angular-mocks.js',
+        'src/angular-footable.js'
+    ],
 
-        reporters: [ 'dots' ],
-        colors: true,
-        logLevel: config.LOG_INFO,
-        
-        port: 9876,
-        autoWatch: false,
+  reporters: ['coverage', 'junit', 'progress'],
+  
 
-        browsers: [ 'PhantomJS' ],
-        singleRun: true
-    });
+  junitReporter: {
+    outputFile: 'reports/test/unit/junit/test-results.xml',
+    suite: ''
+  },
+
+  coverageReporter: {
+    reporters: [
+      { type: 'html', dir: 'reports/test/unit/coverage' },
+      { type: 'lcovonly', dir: 'reports/test/unit/coverage' },
+      { type: 'json', dir: 'reports/test/unit/coverage' },
+      { type: 'cobertura', dir: 'reports/test/unit/coverage' }
+    ]
+  }
 };
