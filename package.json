@@ -2,7 +2,7 @@
     "name": "angular-footable",
     "version": "0.0.1",
     "description": "Angular derictive for FooTable",
-    "main": "gruntfile.js",
+    "main": "dist/angular-footable.js",
     "directories": {
         "test": "test"
     },
@@ -15,8 +15,7 @@
     },
     "keywords": [
         "angular",
-        "library",
-        "seed"
+        "footable"
     ],
     "author": "Tony Wang",
     "license": "MIT",
