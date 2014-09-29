@@ -26,44 +26,44 @@ angular
 #### sorting
   there is no new configuration add in this module, to enable sorting feature, you only need to follow the setup of the footable
   * include footable.sort.js in your app
-  ```html
-  <script type="text/javascript" src="footable/js/footable.filter.js"></script>
-  ```
+```html
+<script type="text/javascript" src="footable/js/footable.filter.js"></script>
+```
   * configure in the table header
-  ```html
-  <thead>
-      <tr>
-          <th data-type="numeric" data-sort-initial="true">
-              ID
-          </th>
-          <th>
-              First Name
-          </th>
-          <th data-sort-ignore="true">
-              Last Name
-          </th>
-          <th data-hide="phone,tablet">
-              Job Title
-          </th>
-          <th data-type="numeric" data-hide="phone,tablet">
-              DOB
-          </th>
-          <th data-hide="phone">
-              Status
-          </th>
-      </tr>
-  </thead>
-  ```
+```html
+<thead>
+  <tr>
+      <th data-type="numeric" data-sort-initial="true">
+          ID
+      </th>
+      <th>
+          First Name
+      </th>
+      <th data-sort-ignore="true">
+          Last Name
+      </th>
+      <th data-hide="phone,tablet">
+          Job Title
+      </th>
+      <th data-type="numeric" data-hide="phone,tablet">
+          DOB
+      </th>
+      <th data-hide="phone">
+          Status
+      </th>
+  </tr>
+</thead>
+```
 #### filtering data
   * include footable.sort.js
-  ```html
-  <script type="text/javascript" src="footable/js/footable.sort.js"></script>
-  ```
+```html
+<script type="text/javascript" src="footable/js/footable.sort.js"></script>
+```
   * basic filter
-  ```html
-  <input id="filter" type="text"/>
-  <table class="table footable" data-filter="#filter">
-  ```
+```html
+<input id="filter" type="text"/>
+<table class="table footable" data-filter="#filter">
+```
   * custom filter
     * in the view
     ```html
@@ -77,51 +77,52 @@ angular
     <table class="table footable" data-before-filtering="filteringEventHandler">
     ```
     * in the controller
-    ```javascript
-    .controller('exampleCtrl', function($scope) {
-          $scope.clearFilter = function() {
-              $('.filter-status').val('');
-              $('.footable').trigger('footable_clear_filter');
-          };
-  
-          $scope.filteringEventHandler = function(e) {
-              var selected = $('.filter-status').find(':selected').text();
-              if (selected && selected.length > 0) {
-                  e.filter += (e.filter && e.filter.length > 0) ? ' ' + selected : selected;
-                  e.clear = !e.filter;
-              }
-          };
-  
-          $scope.filterByStatus = function() {
-              $('.footable').trigger('footable_filter', {
-                  filter: $('#filter').val()
-              });
-          };
-  
-          $scope.filter = {
-              status: null
-          };
-      })
-    ```
-#### paginating table is very easy, follow the demo page of footable is enough
+```javascript
+.controller('exampleCtrl', function($scope) {
+      $scope.clearFilter = function() {
+          $('.filter-status').val('');
+          $('.footable').trigger('footable_clear_filter');
+      };
+
+      $scope.filteringEventHandler = function(e) {
+          var selected = $('.filter-status').find(':selected').text();
+          if (selected && selected.length > 0) {
+              e.filter += (e.filter && e.filter.length > 0) ? ' ' + selected : selected;
+              e.clear = !e.filter;
+          }
+      };
+
+      $scope.filterByStatus = function() {
+          $('.footable').trigger('footable_filter', {
+              filter: $('#filter').val()
+          });
+      };
+
+      $scope.filter = {
+          status: null
+      };
+  })
+```
+#### paginating
+  paginate table is very easy, follow the demo page of footable is enough
   * load foot.paginate.js into your app
-  ```html
-  <script type="text/javascript" src="footable/js/footable.paginate.js"></script>
-  ```
+```html
+<script type="text/javascript" src="footable/js/footable.paginate.js"></script>
+```
   * configure the page size on the table element
-  ```html
-  <table class="table footable" data-page-size="5">
-  ```
+```html
+<table class="table footable" data-page-size="5">
+```
   * add the pagination bar in the table foot
-  ```html
-  <tfoot class="hide-if-no-paging">
-  <tr>
-    <td colspan="6" align="center">
-      <ul class="pagination"></ul>
-    </td>
-  </tr>
-  </tfoot>
-  ```
+```html
+<tfoot class="hide-if-no-paging">
+<tr>
+<td colspan="6" align="center">
+  <ul class="pagination"></ul>
+</td>
+</tr>
+</tfoot>
+```
 
 License
 -------
