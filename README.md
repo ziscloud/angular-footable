@@ -66,16 +66,16 @@ angular
 ```
   * custom filter
     * in the view
-    ```html
-    <select class="filter-status" ng-model='filter.status' ng-change="filterByStatus()">
-      <option></option>
-      <option value="active">Active</option>
-      <option value="disabled">Disabled</option>
-      <option value="suspended">Suspended</option>
-    </select>
-    <a href="#clear" class="clear-filter" title="clear filter" ng-click="clearFilter()">[clear]</a>
-    <table class="table footable" data-before-filtering="filteringEventHandler">
-    ```
+```html
+<select class="filter-status" ng-model='filter.status' ng-change="filterByStatus()">
+  <option></option>
+  <option value="active">Active</option>
+  <option value="disabled">Disabled</option>
+  <option value="suspended">Suspended</option>
+</select>
+<a href="#clear" class="clear-filter" title="clear filter" ng-click="clearFilter()">[clear]</a>
+<table class="table footable" data-before-filtering="filteringEventHandler">
+```
     * in the controller
 ```javascript
 .controller('exampleCtrl', function($scope) {
