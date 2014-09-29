@@ -66,43 +66,43 @@ angular
 ```
   * custom filter
     * in the view
-```html
-<select class="filter-status" ng-model='filter.status' ng-change="filterByStatus()">
-  <option></option>
-  <option value="active">Active</option>
-  <option value="disabled">Disabled</option>
-  <option value="suspended">Suspended</option>
-</select>
-<a href="#clear" class="clear-filter" title="clear filter" ng-click="clearFilter()">[clear]</a>
-<table class="table footable" data-before-filtering="filteringEventHandler">
-```
+    ```html
+    <select class="filter-status" ng-model='filter.status' ng-change="filterByStatus()">
+      <option></option>
+      <option value="active">Active</option>
+      <option value="disabled">Disabled</option>
+      <option value="suspended">Suspended</option>
+    </select>
+    <a href="#clear" class="clear-filter" title="clear filter" ng-click="clearFilter()">[clear]</a>
+    <table class="table footable" data-before-filtering="filteringEventHandler">
+    ```
     * in the controller
-```javascript
-.controller('exampleCtrl', function($scope) {
-      $scope.clearFilter = function() {
-          $('.filter-status').val('');
-          $('.footable').trigger('footable_clear_filter');
-      };
-
-      $scope.filteringEventHandler = function(e) {
-          var selected = $('.filter-status').find(':selected').text();
-          if (selected && selected.length > 0) {
-              e.filter += (e.filter && e.filter.length > 0) ? ' ' + selected : selected;
-              e.clear = !e.filter;
-          }
-      };
-
-      $scope.filterByStatus = function() {
-          $('.footable').trigger('footable_filter', {
-              filter: $('#filter').val()
-          });
-      };
-
-      $scope.filter = {
-          status: null
-      };
-  })
-```
+    ```javascript
+    .controller('exampleCtrl', function($scope) {
+          $scope.clearFilter = function() {
+              $('.filter-status').val('');
+              $('.footable').trigger('footable_clear_filter');
+          };
+    
+          $scope.filteringEventHandler = function(e) {
+              var selected = $('.filter-status').find(':selected').text();
+              if (selected && selected.length > 0) {
+                  e.filter += (e.filter && e.filter.length > 0) ? ' ' + selected : selected;
+                  e.clear = !e.filter;
+              }
+          };
+    
+          $scope.filterByStatus = function() {
+              $('.footable').trigger('footable_filter', {
+                  filter: $('#filter').val()
+              });
+          };
+    
+          $scope.filter = {
+              status: null
+          };
+      })
+    ```
 #### paginating
   paginate table is very easy, follow the demo page of footable is enough
   * load foot.paginate.js into your app
