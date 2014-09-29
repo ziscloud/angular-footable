@@ -6,6 +6,10 @@ This is the directive to allow the use of JQuery footable plugin (http://fooplug
 Installation
 ------------
 
+```shell
+bower install angular-footable
+```
+
 Usage
 -----
 
