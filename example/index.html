@@ -1,16 +1,147 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="angular-footable-example">
-    <head>
-        <meta charset="UTF-8">
-        <title>angular-footable example page</title>
 
-        <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
-        <script type="text/javascript" src="../dist/angular-footable.js"></script>
-    </head>
-    <body ng-controller="exampleCtrl">
-       
-        Example service: {{ exampleResult }}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no"/>
+    <title>angular-footable example page</title>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="footable/css/footable.core.css">
+</head>
 
-        <script type="text/javascript" src="main.js"></script>
-    </body>
+<body ng-controller="exampleCtrl">
+    <p>
+        Search: <input id="filter" type="text"/>
+        Status: <select class="filter-status" ng-model='filter.status' ng-change="filterByStatus()">
+        <option></option>
+        <option value="active">Active</option>
+        <option value="disabled">Disabled</option>
+        <option value="suspended">Suspended</option>
+      </select>
+        <a href="#clear" class="clear-filter" title="clear filter" ng-click="clearFilter()">[clear]</a>
+    </p>
+
+    <table class="table footable" data-filter="#filter" data-before-filtering="filteringEventHandler" data-page-size="5">
+        <thead>
+            <tr>
+                <th data-type="numeric" data-sort-initial="true">
+                    ID
+                </th>
+                <th>
+                    First Name
+                </th>
+                <th data-sort-ignore="true">
+                    Last Name
+                </th>
+                <th data-hide="phone,tablet">
+                    Job Title
+                </th>
+                <th data-type="numeric" data-hide="phone,tablet">
+                    DOB
+                </th>
+                <th data-hide="phone">
+                    Status
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2</td>
+                <td>Isidra</td>
+                <td><a href="#">Boudreaux</a></td>
+                <td>Traffic Court Referee</td>
+                <td data-value="78025368997">22 Jun 1972</td>
+                <td data-value="1"><span class="status-metro status-active" title="Active">Active</span></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Shona</td>
+                <td>Woldt</td>
+                <td><a href="#">Airline Transport Pilot</a></td>
+                <td data-value="370961043292">3 Oct 1981</td>
+                <td data-value="2"><span class="status-metro status-disabled" title="Disabled">Disabled</span></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Granville</td>
+                <td>Leonardo</td>
+                <td>Business Services Sales Representative</td>
+                <td data-value="-22133780420">19 Apr 1969</td>
+                <td data-value="3"><span class="status-metro status-suspended" title="Suspended">Suspended</span></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Easer</td>
+                <td>Dragoo</td>
+                <td>Drywall Stripper</td>
+                <td data-value="250833505574">13 Dec 1977</td>
+                <td data-value="1"><span class="status-metro status-active" title="Active">Active</span></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Maple</td>
+                <td>Halladay</td>
+                <td>Aviation Tactical Readiness Officer</td>
+                <td data-value="694116650726">30 Dec 1991</td>
+                <td data-value="3"><span class="status-metro status-suspended" title="Suspended">Suspended</span></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Maxine</td>
+                <td><a href="#">Woldt</a></td>
+                <td><a href="#">Business Services Sales Representative</a></td>
+                <td data-value="561440464855">17 Oct 1987</td>
+                <td data-value="2"><span class="status-metro status-disabled" title="Disabled">Disabled</span></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Lorraine</td>
+                <td>Mcgaughy</td>
+                <td>Hemodialysis Technician</td>
+                <td data-value="437400551390">11 Nov 1983</td>
+                <td data-value="2"><span class="status-metro status-disabled" title="Disabled">Disabled</span></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Lizzee</td>
+                <td><a href="#">Goodlow</a></td>
+                <td>Technical Services Librarian</td>
+                <td data-value="-257733999319">1 Nov 1961</td>
+                <td data-value="3"><span class="status-metro status-suspended" title="Suspended">Suspended</span></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Judi</td>
+                <td>Badgett</td>
+                <td>Electrical Lineworker</td>
+                <td data-value="362134712000">23 Jun 1981</td>
+                <td data-value="1"><span class="status-metro status-active" title="Active">Active</span></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Lauri</td>
+                <td>Hyland</td>
+                <td>Blackjack Supervisor</td>
+                <td data-value="500874333932">15 Nov 1985</td>
+                <td data-value="3"><span class="status-metro status-suspended" title="Suspended">Suspended</span></td>
+            </tr>
+        </tbody>
+        <tfoot class="hide-if-no-paging">
+        <tr>
+          <td colspan="6" align="center">
+            <ul class="pagination"></ul>
+          </td>
+        </tr>
+        </tfoot>
+    </table>
+
+</body>
+    <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="angular/angular.js"></script>
+    <script type="text/javascript" src="footable/js/footable.js"></script>
+    <script type="text/javascript" src="footable/js/footable.sort.js"></script>
+    <script type="text/javascript" src="footable/js/footable.filter.js"></script>
+    <script type="text/javascript" src="footable/js/footable.paginate.js"></script>
+    <script type="text/javascript" src="angular-footable.js"></script>
+    <script type="text/javascript" src="main.js"></script>
 </html>

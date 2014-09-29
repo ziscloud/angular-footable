@@ -10,7 +10,9 @@
         "inject",
         "$controller",
         "$compile",
-        "angular"
+        "angular",
+        "footable",
+        "scope"
     ],
     "regexdash": true,
     "browser": true,

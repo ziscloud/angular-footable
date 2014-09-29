@@ -11,6 +11,7 @@ module.exports = {
         'bower_components/jquery/dist/jquery.js',
         'bower_components/angular/angular.js',
         'bower_components/angular-mocks/angular-mocks.js',
+        'bower_components/footable/js/footable.js',
         'src/angular-footable.js'
     ],
 
