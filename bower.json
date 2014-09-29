@@ -21,9 +21,7 @@
   ],
   "dependencies": {
     "angular": "~1.2",
-    "footable": "~2.0.0",
-    "underscore.string": "~2.3.0",
-    "underscore": "~1.7.0"
+    "footable": "~2.0.0"
   },
   "devDependencies": {
     "angular-mocks": "~1.2",
