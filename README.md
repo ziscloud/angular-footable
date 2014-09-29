@@ -27,7 +27,7 @@ angular
   there is no new configuration add in this module, to enable sorting feature, you only need to follow the setup of the footable
   * include footable.sort.js in your app
 ```html
-<script type="text/javascript" src="footable/js/footable.filter.js"></script>
+<script type="text/javascript" src="footable/js/footable.sort.js"></script>
 ```
   * configure in the table header
 ```html
@@ -55,9 +55,9 @@ angular
 </thead>
 ```
 #### filtering data
-  * include footable.sort.js
+  * include footable.filter.js
 ```html
-<script type="text/javascript" src="footable/js/footable.sort.js"></script>
+<script type="text/javascript" src="footable/js/footable.filter.js"></script>
 ```
   * basic filter
 ```html
