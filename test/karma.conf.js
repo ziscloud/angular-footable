@@ -3,7 +3,7 @@ module.exports = {
   frameworks: ['jasmine'],
 
   preprocessors: {
-    'src/**/!(*Spec).js': ['coverage'],
+    'test/**/!(*Spec).js': ['coverage'],
     'src/**/*.js': ['commonjs']
   },
 
