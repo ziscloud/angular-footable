@@ -1,36 +1,30 @@
 {
-  "name": "angular-footable",
-  "version": "0.0.1",
-  "description": "Angular derictive for FooTable",
-  "main": "dist/angular-footable.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "gulp test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ziscloud/angular-footable.git"
-  },
-  "keywords": [
-    "angular",
-    "footable"
-  ],
-  "author": "Tony Wang",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ziscloud/angular-footable/issues"
-  },
-  "homepage": "https://github.com/ziscloud/angular-footable",
-  "devDependencies": {
-    "boilerplate-gulp": "~0.3.0",
-    "gulp": "~3.8.0",
-    "gulp-clean": "^0.3.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-jshint": "^2.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.5.1",
-    "jshint": "^2.9.1"
-  }
+    "name": "angular-footable",
+    "version": "0.0.1",
+    "description": "Angular derictive for FooTable",
+    "main": "dist/angular-footable.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "gulp test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ziscloud/angular-footable.git"
+    },
+    "keywords": [
+        "angular",
+        "footable"
+    ],
+    "author": "Tony Wang",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ziscloud/angular-footable/issues"
+    },
+    "homepage": "https://github.com/ziscloud/angular-footable",
+    "devDependencies": {
+        "gulp": "~3.8.0",
+        "boilerplate-gulp": "~0.3.0"
+    }
 }

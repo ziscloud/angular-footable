@@ -2,7 +2,7 @@
 
 angular
     .module('ui.footable', [])
-    .directive('footable', ['$timeout', function($timeout) {
+    .directive('footable', function() {
         var events = {
             beforeFiltering: 'footable_filtering'
         };
@@ -52,12 +52,6 @@ angular
 
                 bindEventHandler(tableObj, scope, attrs);
 
-                scope.$watch(function() {return attrs.loadWhen; }, function(){
-                    $timeout(function(){
-                        element.trigger('footable_redraw');
-                    });
-                });
-
             }
         };
-    }]);
+    });
