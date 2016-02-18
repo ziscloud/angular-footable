@@ -37,21 +37,21 @@ angular
                 var tableOpts = {
                     'event-filtering': null
                 };
+                $timeout(function(){
+                    angular.extend(
+                        tableOpts,
+                        footable.options
+                    );
 
-                angular.extend(
-                    tableOpts,
-                    footable.options
-                );
+                    angular.extend(
+                        tableOpts,
+                        extractSpecOpts(tableOpts, attrs)
+                    );
 
-                angular.extend(
-                    tableOpts,
-                    extractSpecOpts(tableOpts, attrs)
-                );
+                    var tableObj = element.footable(tableOpts);
 
-                var tableObj = element.footable(tableOpts);
-
-                bindEventHandler(tableObj, scope, attrs);
-
+                    bindEventHandler(tableObj, scope, attrs);
+                },1000);
                 scope.$watch(function() {return attrs.loadWhen; }, function(){
                     $timeout(function(){
                         element.trigger('footable_redraw');
