@@ -47,16 +47,18 @@ angular
                         tableOpts,
                         extractSpecOpts(tableOpts, attrs)
                     );
-
-                    var tableObj = element.footable(tableOpts);
-
+                    if(typeof element.footable === 'function'){
+                        var tableObj = element.footable(tableOpts); 
+                    } else {
+                        var tableObj = jQuery(element).footable(tableOpts);
+                    }
                     bindEventHandler(tableObj, scope, attrs);
-                },1000);
-                scope.$watch(function() {return attrs.loadWhen; }, function(){
-                    $timeout(function(){
-                        element.trigger('footable_redraw');
+                    scope.$watch(function() {return attrs.loadWhen; }, function(){
+                        $timeout(function(){
+                            element.trigger('footable_redraw');
+                        });
                     });
-                });
+                },1000);
             }
         };
     }]);
