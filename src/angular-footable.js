@@ -56,7 +56,7 @@ angular
                     bindEventHandler(tableObj, scope, attrs);
                     scope.$watch(function() {return attrs.loadWhen; }, function(){
                         $timeout(function(){
-                            element.trigger('footable_redraw');
+                            element.triggerHandler('footable_redraw');
                         });
                     });
                 },1000);
