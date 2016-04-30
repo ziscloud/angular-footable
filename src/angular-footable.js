@@ -47,10 +47,11 @@ angular
                         tableOpts,
                         extractSpecOpts(tableOpts, attrs)
                     );
+                    var tableObj = {};
                     if(typeof element.footable === 'function'){
-                        var tableObj = element.footable(tableOpts); 
+                        tableObj = element.footable(tableOpts); 
                     } else {
-                        var tableObj = jQuery(element).footable(tableOpts);
+                        tableObj = jQuery(element).footable(tableOpts);
                     }
                     bindEventHandler(tableObj, scope, attrs);
                     scope.$watch(function() {return attrs.loadWhen; }, function(){
