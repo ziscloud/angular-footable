@@ -2,7 +2,7 @@
 
 angular
     .module('ui.footable', [])
-    .directive('footable', function() {
+    .directive('footable', ['$timeout', function($timeout) {
         var events = {
             beforeFiltering: 'footable_filtering'
         };
@@ -37,21 +37,29 @@ angular
                 var tableOpts = {
                     'event-filtering': null
                 };
+                $timeout(function(){
+                    angular.extend(
+                        tableOpts,
+                        footable.options
+                    );
 
-                angular.extend(
-                    tableOpts,
-                    footable.options
-                );
-
-                angular.extend(
-                    tableOpts,
-                    extractSpecOpts(tableOpts, attrs)
-                );
-
-                var tableObj = element.footable(tableOpts);
-
-                bindEventHandler(tableObj, scope, attrs);
-
+                    angular.extend(
+                        tableOpts,
+                        extractSpecOpts(tableOpts, attrs)
+                    );
+                    var tableObj = {};
+                    if(typeof element.footable === 'function'){
+                        tableObj = element.footable(tableOpts); 
+                    } else {
+                        tableObj = jQuery(element).footable(tableOpts);
+                    }
+                    bindEventHandler(tableObj, scope, attrs);
+                    scope.$watch(function() {return attrs.loadWhen; }, function(){
+                        $timeout(function(){
+                            element.triggerHandler('footable_redraw');
+                        });
+                    });
+                },1000);
             }
         };
-    });
+    }]);
